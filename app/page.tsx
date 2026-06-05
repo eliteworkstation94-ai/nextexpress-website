@@ -1,7 +1,7 @@
 const navItems = [
   { label: 'หน้าแรก', href: '#home' },
   { label: 'เกี่ยวกับเรา', href: '/about-us/' },
-  { label: 'บริการของเรา', href: '#services' },
+  { label: 'บริการของเรา', href: '/services/' },
   { label: 'โซลูชันของเรา', href: '#solutions' },
   { label: 'ข่าวสาร', href: '#news' },
   { label: 'ติดต่อเรา', href: '#contact' }
@@ -103,7 +103,7 @@ export default function Home() {
             เทคโนโลยีที่ทันสมัย และทีมงานมืออาชีพ เพื่อส่งมอบสิ่งที่ดีที่สุดให้กับคุณ
           </p>
           <div className="hero-actions">
-            <a className="btn primary" href="#services">บริการของเรา</a>
+            <a className="btn primary" href="/services/">บริการของเรา</a>
             <a className="btn secondary" href="#contact">ติดต่อเรา</a>
           </div>
         </div>

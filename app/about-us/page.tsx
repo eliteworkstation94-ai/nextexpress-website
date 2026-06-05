@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 const navItems = [
   { label: 'หน้าแรก', href: '/', icon: 'home' },
   { label: 'เกี่ยวกับเรา', href: '/about-us/' },
-  { label: 'บริการของเรา', href: '/#services' },
+  { label: 'บริการของเรา', href: '/services/' },
   { label: 'โซลูชันของเรา', href: '/#solutions' },
   { label: 'ข่าวสาร', href: '/#news' },
   { label: 'ติดต่อเรา', href: '/#contact' }
