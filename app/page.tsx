@@ -1,6 +1,6 @@
 const navItems = [
   { label: 'หน้าแรก', href: '#home' },
-  { label: 'เกี่ยวกับเรา', href: '#about' },
+  { label: 'เกี่ยวกับเรา', href: '/about-us/' },
   { label: 'บริการของเรา', href: '#services' },
   { label: 'โซลูชันของเรา', href: '#solutions' },
   { label: 'ข่าวสาร', href: '#news' },
