@@ -491,7 +491,7 @@ export function PriceCalculatorPage({ locale = 'th' }: { locale?: Locale }) {
               <div className="price-vehicle-top-v1">
                 <img
                   className="price-vehicle-image-v1"
-                  src={`/vehicles/${vehicle.key}.svg`}
+                  src={`/vehicles/${vehicle.key}.png`}
                   alt=""
                   aria-hidden="true"
                 />
