@@ -11,7 +11,7 @@ const navItems = [
   { label: 'เกี่ยวกับเรา', href: '/about-us/' },
   { label: 'บริการของเรา', href: '/services/' },
   { label: 'โซลูชันของเรา', href: '/solutions/' },
-  { label: 'ข่าวสาร', href: '/#news' },
+  { label: 'ข่าวสาร', href: '/news/' },
   { label: 'ติดต่อเรา', href: '/#contact' }
 ] as const;
 
