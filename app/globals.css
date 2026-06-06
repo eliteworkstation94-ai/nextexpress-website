@@ -4618,6 +4618,7 @@ textarea {
 .price-vehicle-card-v1 {
   min-height: 210px;
   overflow: hidden;
+  background: #f7f8fa;
 }
 
 .price-vehicle-top-v1 {
@@ -4625,70 +4626,23 @@ textarea {
   place-items: center;
   height: 74px;
   color: #fff;
-  background: linear-gradient(135deg, var(--blue-950), var(--blue-800));
+  background:
+    radial-gradient(circle at 76% 20%, rgba(255,255,255,0.18), transparent 26%),
+    linear-gradient(135deg, var(--blue-950) 0%, var(--blue-800) 100%);
 }
 
 .price-vehicle-card-v1:nth-child(2n) .price-vehicle-top-v1 {
-  background: linear-gradient(135deg, #123f75, var(--orange));
+  background:
+    radial-gradient(circle at 78% 28%, rgba(255,255,255,0.18), transparent 26%),
+    linear-gradient(135deg, #123f75 0%, #244875 34%, var(--orange) 100%);
 }
 
-.price-truck-icon-v1 {
-  position: relative;
-  width: 82px;
-  height: 38px;
-}
-
-.price-truck-icon-v1::before {
-  content: '';
-  position: absolute;
-  left: 4px;
-  bottom: 8px;
-  width: 52px;
-  height: 23px;
-  border-radius: 5px;
-  background: #fff;
-  opacity: 0.96;
-}
-
-.price-truck-icon-v1::after {
-  content: '';
-  position: absolute;
-  right: 7px;
-  bottom: 8px;
-  width: 24px;
-  height: 18px;
-  border-radius: 4px 7px 4px 3px;
-  background: #fff;
-  opacity: 0.96;
-}
-
-.price-truck-icon-v1.six::before,
-.price-truck-icon-v1.ten::before,
-.price-truck-icon-v1.trailer::before {
-  width: 60px;
-}
-
-.price-truck-icon-v1.cold::before {
-  border: 2px solid rgba(255,255,255,0.9);
-  background: rgba(255,255,255,0.78);
-}
-
-.price-truck-icon-v1 span {
-  position: absolute;
-  left: 13px;
-  right: 12px;
-  bottom: 1px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.price-truck-icon-v1 span i {
+.price-vehicle-image-v1 {
   display: block;
-  width: 12px;
-  height: 12px;
-  border: 3px solid rgba(255,255,255,0.88);
-  border-radius: 50%;
-  background: var(--blue-950);
+  width: min(106px, 72%);
+  height: 52px;
+  object-fit: contain;
+  transform: translateY(2px);
 }
 
 .price-vehicle-body-v1 {

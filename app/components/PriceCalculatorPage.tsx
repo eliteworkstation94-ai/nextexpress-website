@@ -489,7 +489,12 @@ export function PriceCalculatorPage({ locale = 'th' }: { locale?: Locale }) {
           {estimate.vehiclePrices.map((vehicle) => (
             <article className="price-vehicle-card-v1" key={vehicle.key}>
               <div className="price-vehicle-top-v1">
-                <div className={`price-truck-icon-v1 ${vehicle.key}`}><span><i /><i /></span></div>
+                <img
+                  className="price-vehicle-image-v1"
+                  src={`/vehicles/${vehicle.key}.svg`}
+                  alt=""
+                  aria-hidden="true"
+                />
               </div>
               <div className="price-vehicle-body-v1">
                 <h3>{locale === 'th' ? vehicle.nameTh : vehicle.nameEn}</h3>
