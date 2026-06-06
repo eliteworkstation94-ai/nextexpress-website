@@ -1,19 +1,11 @@
 import type { Metadata } from 'next';
+import { SiteHeader } from '../components/SiteHeader';
 
 export const metadata: Metadata = {
   title: 'บริการของเรา | NextExpress',
   description:
     'บริการโลจิสติกส์ครบวงจรของ NextExpress ทั้งขนส่งทางบก ทางทะเล ทางอากาศ คลังสินค้า พิธีการศุลกากร และโซลูชันพิเศษ'
 };
-
-const navItems = [
-  { label: 'หน้าแรก', href: '/', icon: 'home' },
-  { label: 'เกี่ยวกับเรา', href: '/about-us/' },
-  { label: 'บริการของเรา', href: '/services/' },
-  { label: 'โซลูชันของเรา', href: '/solutions/' },
-  { label: 'ข่าวสาร', href: '/news/' },
-  { label: 'ติดต่อเรา', href: '/contact/' }
-] as const;
 
 const serviceTabs = [
   { label: 'บริการขนส่ง', icon: 'box', active: true },
@@ -199,53 +191,12 @@ function LineIcon({ name }: { name: IconName }) {
   );
 }
 
-function Logo() {
-  return (
-    <a className="logo" href="/" aria-label="NextExpress home">
-      <span className="logo-mark" aria-hidden="true">
-        <span className="speed speed-a" />
-        <span className="speed speed-b" />
-        <span className="nx">NX</span>
-      </span>
-      <span className="logo-copy">
-        <strong>
-          Next<span>Express</span>
-        </strong>
-        <small>Delivering the Next Possibility</small>
-      </span>
-    </a>
-  );
-}
 
-function Header() {
-  return (
-    <header className="site-header about-site-header services-site-header">
-      <Logo />
-      <nav aria-label="Main navigation">
-        {navItems.map((item) => (
-          <a key={item.href} className={item.href === '/services/' ? 'active' : ''} href={item.href}>
-            {'icon' in item ? <LineIcon name={item.icon} /> : null}
-            {item.label}
-          </a>
-        ))}
-      </nav>
-      <div className="header-actions">
-        <div className="language" aria-label="Language selector">
-          <span aria-hidden="true">🌐</span>
-          <strong>TH</strong>
-          <i />
-          <span>EN</span>
-        </div>
-        <a className="quote-btn" href="/contact/">ขอใบเสนอราคา</a>
-      </div>
-    </header>
-  );
-}
 
 export default function ServicesPage() {
   return (
     <main className="services-page-v2">
-      <Header />
+      <SiteHeader activePage="services" locale="th" />
 
       <section className="services-hero-v2" id="services">
         <div className="services-hero-bg" aria-hidden="true" />

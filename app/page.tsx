@@ -1,11 +1,4 @@
-const navItems = [
-  { label: 'หน้าแรก', href: '#home' },
-  { label: 'เกี่ยวกับเรา', href: '/about-us/' },
-  { label: 'บริการของเรา', href: '/services/' },
-  { label: 'โซลูชันของเรา', href: '/solutions/' },
-  { label: 'ข่าวสาร', href: '/news/' },
-  { label: 'ติดต่อเรา', href: '/contact/' }
-];
+import { SiteHeader } from './components/SiteHeader';
 
 const highlights = [
   {
@@ -52,41 +45,11 @@ const services = [
   'Tracking & Control Tower'
 ];
 
-function Logo() {
-  return (
-    <a className="logo" href="#home" aria-label="NextExpress home">
-      <span className="logo-mark" aria-hidden="true">
-        <span className="speed speed-a" />
-        <span className="speed speed-b" />
-        <span className="nx">NX</span>
-      </span>
-      <span className="logo-copy">
-        <strong>Next<span>Express</span></strong>
-        <small>Delivering the Next Possibility</small>
-      </span>
-    </a>
-  );
-}
 
 export default function Home() {
   return (
     <main>
-      <header className="site-header">
-        <Logo />
-        <nav aria-label="Main navigation">
-          {navItems.map((item, index) => (
-            <a key={item.href} className={index === 0 ? 'active' : ''} href={item.href}>
-              {item.label}
-            </a>
-          ))}
-        </nav>
-        <div className="language" aria-label="Language selector">
-          <span aria-hidden="true">🌐</span>
-          <strong>TH</strong>
-          <i />
-          <span>EN</span>
-        </div>
-      </header>
+      <SiteHeader activePage="home" locale="th" />
 
       <section className="hero" id="home">
         <div className="hero-bg" />

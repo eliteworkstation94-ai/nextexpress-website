@@ -1,19 +1,11 @@
 import type { Metadata } from 'next';
+import { SiteHeader } from '../components/SiteHeader';
 
 export const metadata: Metadata = {
   title: 'About Us | NextExpress',
   description:
     'NextExpress คือบริษัทโลจิสติกส์ยุคใหม่ที่ส่งมอบบริการที่เชื่อถือได้ มีประสิทธิภาพ และสร้างโอกาสใหม่ให้ธุรกิจทั่วโลก'
 };
-
-const navItems = [
-  { label: 'หน้าแรก', href: '/', icon: 'home' },
-  { label: 'เกี่ยวกับเรา', href: '/about-us/' },
-  { label: 'บริการของเรา', href: '/services/' },
-  { label: 'โซลูชันของเรา', href: '/solutions/' },
-  { label: 'ข่าวสาร', href: '/news/' },
-  { label: 'ติดต่อเรา', href: '/contact/' }
-] as const;
 
 const values = [
   { icon: 'shield', title: 'Reliability', thai: 'เชื่อถือได้' },
@@ -142,53 +134,12 @@ function LineIcon({ name }: { name: IconName }) {
   );
 }
 
-function Logo() {
-  return (
-    <a className="logo" href="/" aria-label="NextExpress home">
-      <span className="logo-mark" aria-hidden="true">
-        <span className="speed speed-a" />
-        <span className="speed speed-b" />
-        <span className="nx">NX</span>
-      </span>
-      <span className="logo-copy">
-        <strong>
-          Next<span>Express</span>
-        </strong>
-        <small>Delivering the Next Possibility</small>
-      </span>
-    </a>
-  );
-}
 
-function Header() {
-  return (
-    <header className="site-header about-site-header">
-      <Logo />
-      <nav aria-label="Main navigation">
-        {navItems.map((item) => (
-          <a key={item.href} className={item.href === '/about-us/' ? 'active' : ''} href={item.href}>
-            {'icon' in item ? <LineIcon name={item.icon} /> : null}
-            {item.label}
-          </a>
-        ))}
-      </nav>
-      <div className="header-actions">
-        <div className="language" aria-label="Language selector">
-          <span aria-hidden="true">🌐</span>
-          <strong>TH</strong>
-          <i />
-          <span>EN</span>
-        </div>
-        <a className="quote-btn" href="/contact/">ขอใบเสนอราคา</a>
-      </div>
-    </header>
-  );
-}
 
 export default function AboutUsPage() {
   return (
     <main className="about-page-v2">
-      <Header />
+      <SiteHeader activePage="about" locale="th" />
 
       <section className="about-hero" id="about-us">
         <div className="about-hero-bg" aria-hidden="true" />

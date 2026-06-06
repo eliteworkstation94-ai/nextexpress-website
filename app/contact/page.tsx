@@ -1,19 +1,11 @@
 import type { Metadata } from 'next';
+import { SiteHeader } from '../components/SiteHeader';
 
 export const metadata: Metadata = {
   title: 'ติดต่อเรา | NextExpress',
   description:
     'ติดต่อ NextExpress เพื่อขอคำปรึกษา ขอใบเสนอราคา และรับการดูแลด้านโลจิสติกส์ครบวงจร'
 };
-
-const navItems = [
-  { label: 'หน้าแรก', href: '/', icon: 'home' },
-  { label: 'เกี่ยวกับเรา', href: '/about-us/' },
-  { label: 'บริการของเรา', href: '/services/' },
-  { label: 'โซลูชันของเรา', href: '/solutions/' },
-  { label: 'ข่าวสาร', href: '/news/' },
-  { label: 'ติดต่อเรา', href: '/contact/' }
-] as const;
 
 const contactItems = [
   {
@@ -196,53 +188,12 @@ function LineIcon({ name }: { name: IconName }) {
   );
 }
 
-function Logo() {
-  return (
-    <a className="logo" href="/" aria-label="NextExpress home">
-      <span className="logo-mark" aria-hidden="true">
-        <span className="speed speed-a" />
-        <span className="speed speed-b" />
-        <span className="nx">NX</span>
-      </span>
-      <span className="logo-copy">
-        <strong>
-          Next<span>Express</span>
-        </strong>
-        <small>Delivering the Next Possibility</small>
-      </span>
-    </a>
-  );
-}
 
-function Header() {
-  return (
-    <header className="site-header about-site-header contact-site-header">
-      <Logo />
-      <nav aria-label="Main navigation">
-        {navItems.map((item) => (
-          <a key={item.href} className={item.href === '/contact/' ? 'active' : ''} href={item.href}>
-            {'icon' in item ? <LineIcon name={item.icon} /> : null}
-            {item.label}
-          </a>
-        ))}
-      </nav>
-      <div className="header-actions">
-        <div className="language" aria-label="Language selector">
-          <span aria-hidden="true">🌐</span>
-          <strong>TH</strong>
-          <i />
-          <span>EN</span>
-        </div>
-        <a className="quote-btn" href="/contact/#message">ขอใบเสนอราคา</a>
-      </div>
-    </header>
-  );
-}
 
 export default function ContactPage() {
   return (
     <main className="contact-page-v2">
-      <Header />
+      <SiteHeader activePage="contact" locale="th" />
 
       <section className="contact-hero-v2" id="contact">
         <div className="contact-hero-bg" aria-hidden="true" />
