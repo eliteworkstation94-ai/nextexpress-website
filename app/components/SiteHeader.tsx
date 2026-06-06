@@ -1,5 +1,5 @@
 export type Locale = 'th' | 'en';
-export type PageKey = 'home' | 'about' | 'services' | 'solutions' | 'news' | 'contact';
+export type PageKey = 'home' | 'about' | 'services' | 'solutions' | 'news' | 'pricing' | 'contact';
 
 const pagePaths: Record<Locale, Record<PageKey, string>> = {
   th: {
@@ -8,6 +8,7 @@ const pagePaths: Record<Locale, Record<PageKey, string>> = {
     services: '/services/',
     solutions: '/solutions/',
     news: '/news/',
+    pricing: '/price-calculator/',
     contact: '/contact/'
   },
   en: {
@@ -16,6 +17,7 @@ const pagePaths: Record<Locale, Record<PageKey, string>> = {
     services: '/en/services/',
     solutions: '/en/solutions/',
     news: '/en/news/',
+    pricing: '/en/price-calculator/',
     contact: '/en/contact/'
   }
 };
@@ -27,6 +29,7 @@ const navLabels: Record<Locale, Record<PageKey, string>> = {
     services: 'บริการของเรา',
     solutions: 'โซลูชันของเรา',
     news: 'ข่าวสาร',
+    pricing: 'คำนวณราคา',
     contact: 'ติดต่อเรา'
   },
   en: {
@@ -35,6 +38,7 @@ const navLabels: Record<Locale, Record<PageKey, string>> = {
     services: 'Services',
     solutions: 'Solutions',
     news: 'News',
+    pricing: 'Calculator',
     contact: 'Contact'
   }
 };
@@ -44,7 +48,7 @@ const quoteLabel: Record<Locale, string> = {
   en: 'Request a Quote'
 };
 
-const navOrder: PageKey[] = ['home', 'about', 'services', 'solutions', 'news', 'contact'];
+const navOrder: PageKey[] = ['home', 'about', 'services', 'solutions', 'news', 'pricing', 'contact'];
 
 function HomeIcon() {
   return (

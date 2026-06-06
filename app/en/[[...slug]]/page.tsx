@@ -1,10 +1,11 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { SiteHeader, type PageKey } from '../../components/SiteHeader';
+import { PriceCalculatorPage } from '../../components/PriceCalculatorPage';
 
 export const dynamicParams = false;
 
-type EnglishSlug = 'home' | 'about-us' | 'services' | 'solutions' | 'news' | 'contact';
+type EnglishSlug = 'home' | 'about-us' | 'services' | 'solutions' | 'news' | 'price-calculator' | 'contact';
 
 type PageInfo = {
   slug: EnglishSlug;
@@ -44,6 +45,12 @@ const pageInfo: Record<EnglishSlug, PageInfo> = {
     title: 'News | NextExpress',
     description: 'Company news, logistics articles, service updates, and activity highlights from NextExpress.'
   },
+  'price-calculator': {
+    slug: 'price-calculator',
+    activePage: 'pricing',
+    title: 'Price Calculator | NextExpress',
+    description: 'Estimate NextExpress freight from origin and destination, compare baht per weight, baht per volume, and charter truck prices by vehicle type.'
+  },
   contact: {
     slug: 'contact',
     activePage: 'contact',
@@ -65,6 +72,7 @@ export function generateStaticParams() {
     { slug: ['services'] },
     { slug: ['solutions'] },
     { slug: ['news'] },
+    { slug: ['price-calculator'] },
     { slug: ['contact'] }
   ];
 }
@@ -879,6 +887,14 @@ function renderPage(page: PageInfo) {
   if (page.slug === 'services') return <EnglishServicesPage />;
   if (page.slug === 'solutions') return <EnglishSolutionsPage />;
   if (page.slug === 'news') return <EnglishNewsPage />;
+  if (page.slug === 'price-calculator') {
+    return (
+      <main className="price-page-v1">
+        <SiteHeader activePage="pricing" locale="en" />
+        <PriceCalculatorPage locale="en" />
+      </main>
+    );
+  }
   if (page.slug === 'contact') return <EnglishContactPage />;
   return null;
 }

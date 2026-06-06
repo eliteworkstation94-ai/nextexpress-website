@@ -3793,7 +3793,7 @@ textarea {
   display: grid;
   grid-template-columns: minmax(240px, 380px) minmax(0, 1fr);
   gap: 28px;
-  align-items: end;
+  align-items: flex-end;
   margin-bottom: 22px;
 }
 
@@ -3986,5 +3986,850 @@ textarea {
 
   .english-contact-form textarea {
     grid-column: auto;
+  }
+}
+
+
+/* Price calculator page */
+.price-page-v1 {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(255, 91, 24, 0.13), transparent 26%),
+    linear-gradient(180deg, #ffffff 0%, #f3f7fc 38%, #eaf2fa 100%);
+}
+
+.price-hero-v1 {
+  position: relative;
+  min-height: 258px;
+  overflow: hidden;
+  color: #fff;
+  background: var(--blue-950);
+}
+
+.price-hero-v1::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(6,43,95,0.96) 0%, rgba(6,43,95,0.87) 42%, rgba(6,43,95,0.25) 72%, rgba(255,91,24,0.32) 100%),
+    url('/services-hero-scene.jpg') center/cover no-repeat;
+  transform: scale(1.02);
+}
+
+.price-hero-v1::after {
+  content: '';
+  position: absolute;
+  right: 7%;
+  top: -55px;
+  width: 260px;
+  height: 430px;
+  background: linear-gradient(180deg, rgba(255,91,24,0.92), rgba(255,91,24,0.18));
+  transform: skewX(-24deg);
+  opacity: 0.92;
+}
+
+.price-hero-content-v1 {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 44px;
+  align-items: flex-end;
+  width: min(var(--content-max), calc(100% - 96px));
+  margin: 0 auto;
+  padding: 46px 0 38px;
+}
+
+.price-hero-kicker-v1 {
+  margin: 0 0 8px;
+  color: #ffb18d;
+  font-family: var(--font-latin);
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.price-hero-v1 h1 {
+  margin: 0;
+  font-size: clamp(40px, 4.5vw, 64px);
+  line-height: 0.96;
+  font-weight: 900;
+  letter-spacing: -0.045em;
+}
+
+.price-hero-v1 h1 span {
+  color: var(--orange);
+}
+
+.price-hero-copy-v1 {
+  max-width: 690px;
+  margin: 18px 0 0;
+  color: rgba(255,255,255,0.88);
+  font-size: 18px;
+  font-weight: 650;
+}
+
+.price-hero-badges-v1 {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  align-items: flex-end;
+}
+
+.price-hero-badge-v1 {
+  width: 176px;
+  min-height: 92px;
+  padding: 15px;
+  border-radius: 16px;
+  color: var(--blue-950);
+  background: rgba(255,255,255,0.94);
+  box-shadow: 0 20px 45px rgba(4,21,47,0.22);
+}
+
+.price-hero-badge-v1 strong {
+  display: block;
+  color: var(--orange);
+  font-family: var(--font-latin);
+  font-size: 28px;
+  line-height: 1;
+  font-weight: 900;
+  letter-spacing: -0.055em;
+}
+
+.price-hero-badge-v1 span {
+  display: block;
+  margin-top: 7px;
+  color: #425c7b;
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.price-calculator-wrap-v1 {
+  position: relative;
+  z-index: 4;
+  width: min(var(--content-max), calc(100% - 96px));
+  margin: -36px auto 0;
+}
+
+.price-mode-tabs-v1 {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px;
+  margin-bottom: 14px;
+  border: 1px solid rgba(6,43,95,0.08);
+  border-radius: 999px;
+  background: #fff;
+  box-shadow: 0 14px 40px rgba(6,43,95,0.13);
+}
+
+.price-mode-tabs-v1 button {
+  border: 0;
+  border-radius: 999px;
+  padding: 10px 18px;
+  color: #526b86;
+  background: transparent;
+  font-weight: 850;
+  cursor: pointer;
+}
+
+.price-mode-tabs-v1 button.active {
+  color: #fff;
+  background: var(--blue-950);
+  box-shadow: 0 9px 20px rgba(6,43,95,0.18);
+}
+
+.price-calculator-card-v1 {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(330px, 0.86fr);
+  gap: 18px;
+  padding: 18px;
+  border: 1px solid rgba(8,43,87,0.08);
+  border-radius: 22px;
+  background: rgba(255,255,255,0.96);
+  box-shadow: var(--shadow);
+}
+
+.price-form-panel-v1,
+.price-summary-panel-v1,
+.price-rate-card-v1,
+.price-vehicle-card-v1,
+.price-route-card-v1 {
+  border: 1px solid rgba(8,43,87,0.10);
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 10px 26px rgba(6,43,95,0.06);
+}
+
+.price-form-panel-v1 {
+  padding: 22px;
+}
+
+.price-panel-title-v1 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 17px;
+}
+
+.price-panel-title-v1 h2,
+.price-summary-panel-v1 h2 {
+  margin: 0;
+  color: var(--blue-950);
+  font-size: 24px;
+  line-height: 1.1;
+  font-weight: 900;
+  letter-spacing: -0.035em;
+}
+
+.price-panel-title-v1 small {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  color: var(--orange);
+  background: rgba(255,91,24,0.09);
+  font-weight: 900;
+}
+
+.price-field-grid-v1 {
+  display: grid;
+  grid-template-columns: 1fr 54px 1fr;
+  gap: 12px;
+  align-items: flex-end;
+}
+
+.price-field-v1 {
+  display: grid;
+  gap: 8px;
+}
+
+.price-field-v1 > span,
+.price-metric-input-v1 > span {
+  color: #536c88;
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.price-field-v1 select {
+  min-height: 58px;
+  width: 100%;
+  padding: 0 40px 0 16px;
+  border: 1px solid rgba(8,43,87,0.14);
+  border-radius: 14px;
+  color: var(--blue-950);
+  background: #f8fbff;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.8);
+  font-weight: 850;
+  cursor: pointer;
+}
+
+.price-swap-v1 {
+  width: 54px;
+  height: 54px;
+  border: 0;
+  border-radius: 50%;
+  color: #fff;
+  background: var(--orange);
+  box-shadow: 0 12px 24px rgba(255,91,24,0.28);
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.price-measurement-grid-v1 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.price-metric-input-v1 {
+  display: grid;
+  min-height: 86px;
+  padding: 13px 14px;
+  border: 1px solid rgba(8,43,87,0.13);
+  border-radius: 14px;
+  background: linear-gradient(180deg, #fff, #f8fbff);
+}
+
+.price-metric-input-v1 input {
+  width: 100%;
+  margin-top: 3px;
+  border: 0;
+  outline: 0;
+  color: var(--blue-950);
+  background: transparent;
+  font-family: var(--font-latin);
+  font-size: 25px;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+}
+
+.price-metric-input-v1.static-v1 strong {
+  margin-top: 6px;
+  color: var(--blue-950);
+  font-family: var(--font-latin);
+  font-size: 25px;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+}
+
+.price-metric-input-v1 small {
+  color: #536c88;
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.price-dimension-row-v1 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 9px;
+  margin-top: 12px;
+}
+
+.price-dimension-row-v1 label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 44px;
+  gap: 8px;
+  padding: 0 12px;
+  border-radius: 12px;
+  color: #496680;
+  background: #eef4fa;
+  font-size: 13px;
+  font-weight: 850;
+}
+
+.price-dimension-row-v1 input {
+  width: 58px;
+  border: 0;
+  outline: 0;
+  color: var(--blue-950);
+  background: transparent;
+  font-family: var(--font-latin);
+  font-weight: 900;
+  text-align: right;
+}
+
+.price-dimension-row-v1 strong {
+  color: var(--blue-950);
+  font-family: var(--font-latin);
+  font-size: 12px;
+}
+
+.price-route-card-v1 {
+  display: grid;
+  grid-template-columns: 1fr 190px;
+  gap: 14px;
+  align-items: center;
+  margin-top: 16px;
+  padding: 17px;
+  overflow: hidden;
+}
+
+.price-route-line-v1 {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 96px;
+  padding: 0 14px;
+}
+
+.price-route-line-v1::before {
+  content: '';
+  position: absolute;
+  left: 62px;
+  right: 62px;
+  top: 50%;
+  border-top: 3px dashed rgba(255,91,24,0.52);
+}
+
+.price-pin-v1 {
+  position: relative;
+  z-index: 1;
+  width: 124px;
+  text-align: center;
+}
+
+.price-pin-v1 i {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  margin: 0 auto 9px;
+  border-radius: 50%;
+  color: #fff;
+  background: var(--blue-950);
+  box-shadow: 0 11px 24px rgba(6,43,95,0.18);
+  font-style: normal;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.price-pin-v1.end-v1 i {
+  background: var(--orange);
+}
+
+.price-pin-v1 strong {
+  display: block;
+  color: var(--blue-950);
+  font-size: 15px;
+  font-weight: 900;
+}
+
+.price-pin-v1 small {
+  color: #68839e;
+  font-size: 12px;
+  font-weight: 750;
+}
+
+.price-route-meta-v1 {
+  display: grid;
+  gap: 8px;
+  padding: 13px;
+  border-radius: 15px;
+  color: #fff;
+  background: var(--blue-950);
+}
+
+.price-route-meta-v1 div {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  color: rgba(255,255,255,0.74);
+  font-size: 12px;
+  font-weight: 750;
+}
+
+.price-route-meta-v1 strong {
+  color: #fff;
+  font-family: var(--font-latin);
+  font-size: 15px;
+}
+
+.price-summary-panel-v1 {
+  padding: 20px;
+  background: linear-gradient(180deg, #ffffff, #f9fbff);
+}
+
+.price-summary-panel-v1 h2 {
+  margin-bottom: 10px;
+  font-size: 22px;
+}
+
+.price-total-box-v1 {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 14px;
+  padding: 18px;
+  border-radius: 18px;
+  color: #fff;
+  background: var(--blue-950);
+}
+
+.price-total-box-v1::after {
+  content: '';
+  position: absolute;
+  right: -48px;
+  top: -35px;
+  width: 130px;
+  height: 160px;
+  transform: skewX(-22deg);
+  background: rgba(255,91,24,0.86);
+}
+
+.price-total-box-v1 p,
+.price-total-box-v1 strong,
+.price-total-box-v1 small {
+  position: relative;
+  z-index: 1;
+}
+
+.price-total-box-v1 p {
+  margin: 0;
+  color: rgba(255,255,255,0.72);
+  font-weight: 750;
+}
+
+.price-total-box-v1 strong {
+  display: block;
+  margin-top: 5px;
+  font-family: var(--font-latin);
+  font-size: 42px;
+  line-height: 1;
+  letter-spacing: -0.06em;
+  font-weight: 900;
+}
+
+.price-total-box-v1 small {
+  color: #ffb18d;
+  font-weight: 850;
+}
+
+.price-quote-breakdown-v1 {
+  display: grid;
+  gap: 9px;
+}
+
+.price-quote-breakdown-v1 div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 11px 0;
+  border-bottom: 1px solid rgba(8,43,87,0.08);
+  color: #526b86;
+  font-weight: 800;
+}
+
+.price-quote-breakdown-v1 strong {
+  color: var(--blue-950);
+  font-family: var(--font-latin);
+}
+
+.price-summary-note-v1 {
+  margin: 12px 0 0;
+  padding: 12px;
+  border-radius: 13px;
+  color: #7a4a20;
+  background: #fff3ea;
+  font-size: 12px;
+  font-weight: 750;
+}
+
+.price-results-section-v1 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  width: min(var(--content-max), calc(100% - 96px));
+  margin: 26px auto 0;
+}
+
+.price-rate-card-v1 {
+  position: relative;
+  overflow: hidden;
+  padding: 20px;
+}
+
+.price-rate-card-v1.active {
+  border-color: rgba(255,91,24,0.46);
+  box-shadow: 0 22px 45px rgba(255,91,24,0.13);
+}
+
+.price-recommended-badge-v1 {
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  padding: 6px 11px;
+  border-radius: 999px;
+  color: #fff;
+  background: var(--orange);
+  box-shadow: 0 10px 18px rgba(255,91,24,0.2);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.price-rate-card-v1 h3 {
+  margin: 0;
+  color: var(--blue-950);
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.price-unit-v1 {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin: 8px 0 10px;
+}
+
+.price-unit-v1 strong {
+  color: var(--orange);
+  font-family: var(--font-latin);
+  font-size: 36px;
+  font-weight: 900;
+  letter-spacing: -0.055em;
+}
+
+.price-unit-v1 span,
+.price-rate-card-v1 p,
+.price-rate-card-v1 footer span {
+  color: #637b96;
+  font-weight: 800;
+}
+
+.price-rate-card-v1 p {
+  margin: 0;
+  font-weight: 700;
+}
+
+.price-rate-card-v1 footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(8,43,87,0.09);
+}
+
+.price-rate-card-v1 footer strong {
+  color: var(--blue-950);
+  font-family: var(--font-latin);
+  font-size: 23px;
+  font-weight: 900;
+}
+
+.price-charter-section-v1 {
+  width: min(var(--content-max), calc(100% - 96px));
+  margin: 22px auto 44px;
+}
+
+.price-section-heading-v1 {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 14px;
+}
+
+.price-section-heading-v1 h2 {
+  margin: 0;
+  color: var(--blue-950);
+  font-size: 28px;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+}
+
+.price-section-heading-v1 p {
+  margin: 0;
+  color: #5f7894;
+  font-weight: 750;
+}
+
+.price-fleet-grid-v1 {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 12px;
+}
+
+.price-vehicle-card-v1 {
+  min-height: 210px;
+  overflow: hidden;
+}
+
+.price-vehicle-top-v1 {
+  display: grid;
+  place-items: center;
+  height: 74px;
+  color: #fff;
+  background: linear-gradient(135deg, var(--blue-950), var(--blue-800));
+}
+
+.price-vehicle-card-v1:nth-child(2n) .price-vehicle-top-v1 {
+  background: linear-gradient(135deg, #123f75, var(--orange));
+}
+
+.price-truck-icon-v1 {
+  position: relative;
+  width: 82px;
+  height: 38px;
+}
+
+.price-truck-icon-v1::before {
+  content: '';
+  position: absolute;
+  left: 4px;
+  bottom: 8px;
+  width: 52px;
+  height: 23px;
+  border-radius: 5px;
+  background: #fff;
+  opacity: 0.96;
+}
+
+.price-truck-icon-v1::after {
+  content: '';
+  position: absolute;
+  right: 7px;
+  bottom: 8px;
+  width: 24px;
+  height: 18px;
+  border-radius: 4px 7px 4px 3px;
+  background: #fff;
+  opacity: 0.96;
+}
+
+.price-truck-icon-v1.six::before,
+.price-truck-icon-v1.ten::before,
+.price-truck-icon-v1.trailer::before {
+  width: 60px;
+}
+
+.price-truck-icon-v1.cold::before {
+  border: 2px solid rgba(255,255,255,0.9);
+  background: rgba(255,255,255,0.78);
+}
+
+.price-truck-icon-v1 span {
+  position: absolute;
+  left: 13px;
+  right: 12px;
+  bottom: 1px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.price-truck-icon-v1 span i {
+  display: block;
+  width: 12px;
+  height: 12px;
+  border: 3px solid rgba(255,255,255,0.88);
+  border-radius: 50%;
+  background: var(--blue-950);
+}
+
+.price-vehicle-body-v1 {
+  padding: 14px;
+}
+
+.price-vehicle-body-v1 h3 {
+  min-height: 42px;
+  margin: 0 0 6px;
+  color: var(--blue-950);
+  font-size: 16px;
+  line-height: 1.18;
+  font-weight: 900;
+}
+
+.price-vehicle-body-v1 p {
+  margin: 0;
+  color: #647d98;
+  font-size: 12px;
+  font-weight: 750;
+}
+
+.price-vehicle-price-v1 {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(8,43,87,0.08);
+}
+
+.price-vehicle-price-v1 span {
+  color: #748aa0;
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.price-vehicle-price-v1 strong {
+  color: var(--orange);
+  font-family: var(--font-latin);
+  font-size: 21px;
+  font-weight: 900;
+  letter-spacing: -0.05em;
+}
+
+.price-bottom-strip-v1 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  width: min(var(--content-max), calc(100% - 96px));
+  margin: 0 auto 48px;
+  padding: 18px 22px;
+  border-radius: 18px;
+  color: #fff;
+  background: var(--blue-950);
+  box-shadow: 0 18px 45px rgba(6,43,95,0.18);
+}
+
+.price-bottom-strip-v1 div {
+  display: grid;
+  gap: 2px;
+}
+
+.price-bottom-strip-v1 strong {
+  color: #fff;
+  font-size: 18px;
+}
+
+.price-bottom-strip-v1 span {
+  color: rgba(255,255,255,0.72);
+  font-weight: 700;
+}
+
+.price-bottom-strip-v1 a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 0 18px;
+  border-radius: 999px;
+  color: #fff;
+  background: var(--orange);
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+@media (max-width: 1180px) {
+  .price-calculator-card-v1,
+  .price-hero-content-v1 {
+    grid-template-columns: 1fr;
+  }
+
+  .price-hero-badges-v1 {
+    justify-content: flex-start;
+  }
+
+  .price-fleet-grid-v1 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 760px) {
+  .price-hero-content-v1,
+  .price-calculator-wrap-v1,
+  .price-results-section-v1,
+  .price-charter-section-v1,
+  .price-bottom-strip-v1 {
+    width: min(100% - 32px, var(--content-max));
+  }
+
+  .price-field-grid-v1,
+  .price-measurement-grid-v1,
+  .price-dimension-row-v1,
+  .price-route-card-v1,
+  .price-results-section-v1,
+  .price-fleet-grid-v1 {
+    grid-template-columns: 1fr;
+  }
+
+  .price-swap-v1 {
+    justify-self: center;
+  }
+
+  .price-mode-tabs-v1 {
+    display: grid;
+    width: 100%;
+    border-radius: 20px;
+  }
+
+  .price-mode-tabs-v1 button {
+    width: 100%;
+  }
+
+  .price-section-heading-v1,
+  .price-bottom-strip-v1 {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .price-hero-v1 h1 {
+    font-size: 42px;
   }
 }
