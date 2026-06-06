@@ -4,7 +4,7 @@ const navItems = [
   { label: 'บริการของเรา', href: '/services/' },
   { label: 'โซลูชันของเรา', href: '/solutions/' },
   { label: 'ข่าวสาร', href: '/news/' },
-  { label: 'ติดต่อเรา', href: '#contact' }
+  { label: 'ติดต่อเรา', href: '/contact/' }
 ];
 
 const highlights = [
@@ -104,7 +104,7 @@ export default function Home() {
           </p>
           <div className="hero-actions">
             <a className="btn primary" href="/services/">บริการของเรา</a>
-            <a className="btn secondary" href="#contact">ติดต่อเรา</a>
+            <a className="btn secondary" href="/contact/">ติดต่อเรา</a>
           </div>
         </div>
 
@@ -180,7 +180,7 @@ export default function Home() {
           <h2>พร้อมเชื่อมต่อระบบขนส่งกับธุรกิจของคุณ</h2>
           <p>รองรับระบบติดตาม API, dashboard สำหรับองค์กร และการออกแบบ route ที่เหมาะกับต้นทุนและเวลาส่งมอบ</p>
         </div>
-        <a className="btn primary" href="#contact">เริ่มต้นปรึกษาเรา</a>
+        <a className="btn primary" href="/contact/">เริ่มต้นปรึกษาเรา</a>
       </section>
 
       <section className="contact" id="contact">

@@ -12,7 +12,7 @@ const navItems = [
   { label: 'บริการของเรา', href: '/services/' },
   { label: 'โซลูชันของเรา', href: '/solutions/' },
   { label: 'ข่าวสาร', href: '/news/' },
-  { label: 'ติดต่อเรา', href: '/#contact' }
+  { label: 'ติดต่อเรา', href: '/contact/' }
 ] as const;
 
 const benefits = [
@@ -316,7 +316,7 @@ function Header() {
           <i />
           <span>EN</span>
         </div>
-        <a className="quote-btn" href="/#contact">ขอใบเสนอราคา</a>
+        <a className="quote-btn" href="/contact/">ขอใบเสนอราคา</a>
       </div>
     </header>
   );
@@ -369,7 +369,7 @@ export default function SolutionsPage() {
                   <li key={bullet}>{bullet}</li>
                 ))}
               </ul>
-              <a className="solution-detail-link-v2" href="/#contact">
+              <a className="solution-detail-link-v2" href="/contact/">
                 <span>ดูรายละเอียด</span>
                 <LineIcon name="arrow" />
               </a>
@@ -400,7 +400,7 @@ export default function SolutionsPage() {
           <h2>ให้เราออกแบบโซลูชันที่ใช่<br /><span>เพื่อธุรกิจของคุณ</span></h2>
           <p>ปรึกษาผู้เชี่ยวชาญของเราได้ฟรี ไม่มีค่าใช้จ่าย</p>
           <div className="solution-cta-actions-v2">
-            <a href="/#contact">ติดต่อเรา <LineIcon name="arrow" /></a>
+            <a href="/contact/">ติดต่อเรา <LineIcon name="arrow" /></a>
             <div>
               <span><LineIcon name="phone" /> 02-XXX-XXXX</span>
               <span><LineIcon name="mail" /> hello@nextexpress.asia</span>

@@ -12,7 +12,7 @@ const navItems = [
   { label: 'บริการของเรา', href: '/services/' },
   { label: 'โซลูชันของเรา', href: '/solutions/' },
   { label: 'ข่าวสาร', href: '/news/' },
-  { label: 'ติดต่อเรา', href: '/#contact' }
+  { label: 'ติดต่อเรา', href: '/contact/' }
 ] as const;
 
 const values = [
@@ -179,7 +179,7 @@ function Header() {
           <i />
           <span>EN</span>
         </div>
-        <a className="quote-btn" href="/#contact">ขอใบเสนอราคา</a>
+        <a className="quote-btn" href="/contact/">ขอใบเสนอราคา</a>
       </div>
     </header>
   );

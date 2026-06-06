@@ -12,7 +12,7 @@ const navItems = [
   { label: 'บริการของเรา', href: '/services/' },
   { label: 'โซลูชันของเรา', href: '/solutions/' },
   { label: 'ข่าวสาร', href: '/news/' },
-  { label: 'ติดต่อเรา', href: '/#contact' }
+  { label: 'ติดต่อเรา', href: '/contact/' }
 ] as const;
 
 const serviceTabs = [
@@ -236,7 +236,7 @@ function Header() {
           <i />
           <span>EN</span>
         </div>
-        <a className="quote-btn" href="/#contact">ขอใบเสนอราคา</a>
+        <a className="quote-btn" href="/contact/">ขอใบเสนอราคา</a>
       </div>
     </header>
   );
@@ -283,7 +283,7 @@ export default function ServicesPage() {
                   <li key={bullet}>{bullet}</li>
                 ))}
               </ul>
-              <a className="service-detail-link-v2" href="/#contact">
+              <a className="service-detail-link-v2" href="/contact/">
                 <span>ดูรายละเอียด</span>
                 <LineIcon name="arrow" />
               </a>
@@ -304,7 +304,7 @@ export default function ServicesPage() {
             <strong>02-XXX-XXXX</strong>
           </div>
         </div>
-        <a className="cta-quote-v2" href="/#contact">
+        <a className="cta-quote-v2" href="/contact/">
           ขอใบเสนอราคา
           <LineIcon name="arrow" />
         </a>
