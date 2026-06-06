@@ -95,7 +95,7 @@ type Vehicle = {
   perKm: number;
 };
 
-const vehicleImageVersion = 'realistic-20260606';
+const vehicleImageVersion = 'illustration-20260606';
 
 const vehicles: Vehicle[] = [
   { key: 'pickup', nameTh: 'รถกระบะ 4 ล้อ', nameEn: '4-Wheel Pickup', descTh: 'เหมาะกับของไม่เกิน 1 ตัน', descEn: 'For loads up to 1 ton', base: 1600, perKm: 4.2 },
