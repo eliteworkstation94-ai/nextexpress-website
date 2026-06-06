@@ -95,6 +95,8 @@ type Vehicle = {
   perKm: number;
 };
 
+const vehicleImageVersion = 'realistic-20260606';
+
 const vehicles: Vehicle[] = [
   { key: 'pickup', nameTh: 'รถกระบะ 4 ล้อ', nameEn: '4-Wheel Pickup', descTh: 'เหมาะกับของไม่เกิน 1 ตัน', descEn: 'For loads up to 1 ton', base: 1600, perKm: 4.2 },
   { key: 'box4', nameTh: 'รถตู้ทึบ 4 ล้อ', nameEn: '4-Wheel Box Truck', descTh: 'กันแดดกันฝน สำหรับกล่องและพัสดุ', descEn: 'Covered body for parcels and boxes', base: 2600, perKm: 6.1 },
@@ -491,7 +493,7 @@ export function PriceCalculatorPage({ locale = 'th' }: { locale?: Locale }) {
               <div className="price-vehicle-top-v1">
                 <img
                   className="price-vehicle-image-v1"
-                  src={`/vehicles/${vehicle.key}.png`}
+                  src={`/vehicles/${vehicle.key}.png?v=${vehicleImageVersion}`}
                   alt=""
                   aria-hidden="true"
                 />
