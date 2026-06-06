@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 96" role="img" aria-hidden="true">
+
+  <defs>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="4" stdDeviation="3" flood-color="#092b58" flood-opacity="0.22"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#softShadow)">
+
+    <path d="M28 38h126c8 0 14 6 14 14v24H28V38Z" fill="#fff"/>
+    <path d="M166 47h27l18 21v8h-45V47Z" fill="#fff"/>
+    <path d="M174 54h14l10 12h-24V54Z" fill="#dce7f2" opacity=".9"/>
+    <path d="M42 48h108v11H42V48Z" fill="#dce7f2" opacity=".72"/>
+    <path d="M95 45v18M86 50l18 8M104 50l-18 8" stroke="#0b477e" stroke-width="4" stroke-linecap="round" opacity=".38"/>
+    <circle cx="60" cy="78" r="10" fill="#0b477e"/>
+    <circle cx="60" cy="78" r="4.5" fill="#e8eef5"/>
+    <circle cx="134" cy="78" r="10" fill="#0b477e"/>
+    <circle cx="134" cy="78" r="4.5" fill="#e8eef5"/>
+    <circle cx="177" cy="78" r="10" fill="#0b477e"/>
+    <circle cx="177" cy="78" r="4.5" fill="#e8eef5"/>
+
+  </g>
+</svg>
