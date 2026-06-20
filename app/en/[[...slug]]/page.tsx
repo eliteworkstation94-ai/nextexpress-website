@@ -491,6 +491,8 @@ const services = [
   { title: 'Special Solutions', icon: 'solution', image: '/service-solutions.jpg', intro: 'Tailored logistics solutions designed around your business model.', bullets: ['Expert consultation', 'Flexible customized solutions', 'Higher efficiency and lower cost'] }
 ];
 
+const comingSoonServices = ['Sea Freight', 'Air Freight', 'Customs Clearance'];
+
 function EnglishServicesPage() {
   return (
     <main className="services-page-v2">
@@ -518,27 +520,48 @@ function EnglishServicesPage() {
       </section>
 
       <section className="service-card-grid-v2" aria-label="NextExpress service list">
-        {services.map((service) => (
-          <article className="service-card-v2" key={service.title}>
-            <div className="service-photo-v2" style={{ backgroundImage: `url(${service.image})` }} />
-            <div className="service-icon-bubble-v2" aria-hidden="true">
-              <LineIcon name={service.icon} />
-            </div>
-            <div className="service-card-body-v2">
-              <h2>{service.title}</h2>
-              <p>{service.intro}</p>
-              <ul>
-                {service.bullets.map((bullet) => (
-                  <li key={bullet}>{bullet}</li>
-                ))}
-              </ul>
-              <a className="service-detail-link-v2" href="/en/contact/">
-                <span>View Details</span>
-                <LineIcon name="arrow" />
-              </a>
-            </div>
-          </article>
-        ))}
+        {services.map((service) => {
+          const isComingSoon = comingSoonServices.includes(service.title);
+
+          return (
+            <article
+              className={`service-card-v2${isComingSoon ? ' service-card-coming-soon-v2' : ''}`}
+              key={service.title}
+              aria-disabled={isComingSoon ? 'true' : undefined}
+            >
+              <div className="service-photo-v2" style={{ backgroundImage: `url(${service.image})` }} />
+              <div className="service-icon-bubble-v2" aria-hidden="true">
+                <LineIcon name={service.icon} />
+              </div>
+              <div className="service-card-body-v2">
+                <h2>{service.title}</h2>
+                <p>{service.intro}</p>
+                <ul>
+                  {service.bullets.map((bullet) => (
+                    <li key={bullet}>{bullet}</li>
+                  ))}
+                </ul>
+                {isComingSoon ? (
+                  <div className="service-detail-link-v2 service-detail-link-disabled-v2" aria-hidden="true">
+                    <span>Coming Soon</span>
+                    <LineIcon name="arrow" />
+                  </div>
+                ) : (
+                  <a className="service-detail-link-v2" href="/en/contact/">
+                    <span>View Details</span>
+                    <LineIcon name="arrow" />
+                  </a>
+                )}
+              </div>
+              {isComingSoon ? (
+                <div className="service-coming-soon-overlay-v2" aria-label={`${service.title} coming soon`}>
+                  <span>COMING SOON</span>
+                  <small>Launching soon</small>
+                </div>
+              ) : null}
+            </article>
+          );
+        })}
       </section>
 
       <section className="services-cta-bar-v2" aria-label="Request a quotation">

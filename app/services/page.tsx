@@ -59,6 +59,8 @@ const services = [
   }
 ] as const;
 
+const comingSoonServices = ['ขนส่งทางทะเล', 'ขนส่งทางอากาศ', 'บริการพิธีการศุลกากร'];
+
 type IconName =
   | 'home'
   | 'box'
@@ -220,27 +222,48 @@ export default function ServicesPage() {
       </section>
 
       <section className="service-card-grid-v2" aria-label="รายการบริการของ NextExpress">
-        {services.map((service) => (
-          <article className="service-card-v2" key={service.title}>
-            <div className="service-photo-v2" style={{ backgroundImage: `url(${service.image})` }} />
-            <div className="service-icon-bubble-v2" aria-hidden="true">
-              <LineIcon name={service.icon} />
-            </div>
-            <div className="service-card-body-v2">
-              <h2>{service.title}</h2>
-              <p>{service.intro}</p>
-              <ul>
-                {service.bullets.map((bullet) => (
-                  <li key={bullet}>{bullet}</li>
-                ))}
-              </ul>
-              <a className="service-detail-link-v2" href="/contact/">
-                <span>ดูรายละเอียด</span>
-                <LineIcon name="arrow" />
-              </a>
-            </div>
-          </article>
-        ))}
+        {services.map((service) => {
+          const isComingSoon = comingSoonServices.includes(service.title);
+
+          return (
+            <article
+              className={`service-card-v2${isComingSoon ? ' service-card-coming-soon-v2' : ''}`}
+              key={service.title}
+              aria-disabled={isComingSoon ? 'true' : undefined}
+            >
+              <div className="service-photo-v2" style={{ backgroundImage: `url(${service.image})` }} />
+              <div className="service-icon-bubble-v2" aria-hidden="true">
+                <LineIcon name={service.icon} />
+              </div>
+              <div className="service-card-body-v2">
+                <h2>{service.title}</h2>
+                <p>{service.intro}</p>
+                <ul>
+                  {service.bullets.map((bullet) => (
+                    <li key={bullet}>{bullet}</li>
+                  ))}
+                </ul>
+                {isComingSoon ? (
+                  <div className="service-detail-link-v2 service-detail-link-disabled-v2" aria-hidden="true">
+                    <span>เร็ว ๆ นี้</span>
+                    <LineIcon name="arrow" />
+                  </div>
+                ) : (
+                  <a className="service-detail-link-v2" href="/contact/">
+                    <span>ดูรายละเอียด</span>
+                    <LineIcon name="arrow" />
+                  </a>
+                )}
+              </div>
+              {isComingSoon ? (
+                <div className="service-coming-soon-overlay-v2" aria-label={`${service.title} coming soon`}>
+                  <span>COMING SOON</span>
+                  <small>เร็ว ๆ นี้</small>
+                </div>
+              ) : null}
+            </article>
+          );
+        })}
       </section>
 
       <section className="services-cta-bar-v2" aria-label="ติดต่อขอใบเสนอราคา">
