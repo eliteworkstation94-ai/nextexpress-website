@@ -12,12 +12,12 @@ const sideNav = [
 ];
 
 const kpis = [
-  { value: '3,284', label: 'Active Shipments', sub: 'กำลังจัดส่งวันนี้', trend: '+12.4%', icon: '🚚' },
-  { value: '98.2%', label: 'On-time Rate', sub: 'SLA delivery success', trend: '+1.8%', icon: '⏱' },
-  { value: '42', label: 'Delayed Orders', sub: 'ต้องติดตามใกล้ชิด', trend: '-8', icon: '⚠' },
-  { value: '128', label: 'Customs Pending', sub: 'รอเอกสาร / เคลียร์สินค้า', trend: '18 urgent', icon: '◆' },
-  { value: '76%', label: 'Warehouse Capacity', sub: 'Bangkok DC + regional hubs', trend: '+4%', icon: '▥' },
-  { value: '฿1.48M', label: 'Revenue Today', sub: 'ยอดงานขนส่งทั้งหมด', trend: '+9.6%', icon: '฿' }
+  { value: '1,248', label: 'Active Shipments', sub: 'งานขนส่งที่กำลังดำเนินการ', trend: '+8.5%', icon: '◎' },
+  { value: '94.2%', label: 'On-time Rate', sub: 'อัตราการจัดส่งตรงเวลา', trend: '+2.1%', icon: '◉' },
+  { value: '38', label: 'Delayed Orders', sub: 'งานล่าช้า', trend: '-5.3%', icon: '◴' },
+  { value: '72', label: 'Customs Pending', sub: 'รอการตรวจสอบเอกสาร', trend: '+12.7%', icon: '▣' },
+  { value: '68%', label: 'Warehouse Capacity', sub: 'ความจุคลังสินค้า', trend: '-3%', icon: '⌂' },
+  { value: '2.45M', label: 'Revenue Today', sub: 'รายได้วันนี้ (THB)', trend: '+15.6%', icon: '฿' }
 ];
 
 const alerts = [
@@ -39,6 +39,33 @@ const warehouseCards = [
   { name: 'Bangkok Fulfillment Hub', value: '82%', label: 'Storage used', bars: [82, 64, 48] },
   { name: 'Laem Chabang Cross Dock', value: '69%', label: 'Dock utilization', bars: [69, 78, 43] },
   { name: 'Chiang Mai Regional DC', value: '54%', label: 'Outbound wave', bars: [54, 36, 72] }
+];
+
+const warehouseProgress = [
+  { label: 'คลังสินค้ากรุงเทพ (BKK)', value: '60%', sub: '10,240 / 15,000', progress: 60 },
+  { label: 'คลังสินค้าแหลมฉบัง (LCB)', value: '72%', sub: '8,640 / 12,000', progress: 72 },
+  { label: 'คลังสินค้าสุวรรณภูมิ (BKK Airport)', value: '55%', sub: '5,500 / 10,000', progress: 55 },
+  { label: 'คลังสินค้าไซ่ง่อน (SIN)', value: '65%', sub: '6,500 / 10,000', progress: 65 }
+];
+
+const pickupSchedule = [
+  { time: '10:00', client: 'ABC Manufacturing Co.', hub: 'BKK Warehouse' },
+  { time: '11:30', client: 'Thai Auto Parts Co.', hub: 'LCB Warehouse' },
+  { time: '14:00', client: 'Global Electronics Ltd.', hub: 'BKK Airport' },
+  { time: '15:30', client: 'Delta Industrial Co.', hub: 'LCB Warehouse' }
+];
+
+const dockStatus = [
+  { hub: 'BKK Warehouse', waiting: '12', empty: '8', active: '4' },
+  { hub: 'LCB Warehouse', waiting: '10', empty: '6', active: '4' },
+  { hub: 'BKK Airport', waiting: '8', empty: '5', active: '3' }
+];
+
+const inventoryHighlights = [
+  { image: '/images/manage/inventory-electronics.png', name: 'ชิ้นส่วนอิเล็กทรอนิกส์', sku: 'ELEC-001', qty: '1,250', value: '2.35M THB' },
+  { image: '/images/manage/inventory-automation.png', name: 'เครื่องจักรอุตสาหกรรม', sku: 'MACH-002', qty: '320', value: '8.64M THB' },
+  { image: '/images/manage/inventory-auto-parts.png', name: 'อะไหล่ยานยนต์', sku: 'AUTO-003', qty: '2,180', value: '1.89M THB' },
+  { image: '/images/manage/inventory-cold-chain.png', name: 'กล่องควบคุมอุณหภูมิ', sku: 'COLD-004', qty: '860', value: '940K THB' }
 ];
 
 const analytics = [
@@ -91,35 +118,25 @@ export default function ManagePage() {
         </aside>
 
         <div className="manage-content">
-          <section className="manage-hero" id="overview">
+          <section className="manage-hero manage-hero-panorama" id="overview">
             <div className="manage-hero-copy">
               <p className="section-kicker">NextExpress Manage</p>
               <h1>ศูนย์จัดการขนส่ง NextExpress</h1>
               <strong>Logistics Control Tower</strong>
               <p>
-                รวมทุกสถานะงานขนส่ง คลังสินค้า ศุลกากร SLA และรายงานเชิงปฏิบัติการไว้ในหน้าเดียว
-                เพื่อให้ทีมมองเห็นภาพรวมและตัดสินใจได้เร็วขึ้น
+                มุมมองแบบเรียลไทม์ ครอบคลุมทุกการขนส่งในภูมิภาค พร้อมข้อมูล SLA คลังสินค้า ศุลกากร และกิจกรรมสำคัญ
               </p>
-              <form className="manage-search" aria-label="Quick tracking search">
-                <input aria-label="Tracking number" placeholder="ค้นหา Tracking ID, ลูกค้า, เส้นทาง หรือเลขอ้างอิง" />
-                <button type="submit">ค้นหา</button>
-              </form>
-              <div className="manage-hero-actions">
-                <a className="btn primary" href="#shipments">สร้างงานขนส่ง</a>
-                <a className="btn secondary" href="#analytics">ดูรายงานวันนี้</a>
-              </div>
             </div>
-            <div className="manage-hero-art" aria-hidden="true">
-              <img src="/images/manage/operations-hero.png" alt="" />
-              <div className="floating-card card-a">
-                <span>On-time</span>
-                <strong>98.2%</strong>
+            <form className="manage-tracking-panel" aria-label="Quick tracking search">
+              <label>
+                <span>ติดตามสถานะพัสดุ (Quick Tracking)</span>
+                <small>กรอกหมายเลขติดตามหรือเลขอ้างอิงงานขนส่ง</small>
+              </label>
+              <div>
+                <input aria-label="Tracking number" placeholder="กรอกหมายเลขติดตาม (Tracking Number)" />
+                <button type="submit">ติดตามพัสดุ</button>
               </div>
-              <div className="floating-card card-b">
-                <span>Live orders</span>
-                <strong>3,284</strong>
-              </div>
-            </div>
+            </form>
           </section>
 
           <section className="manage-kpi-grid" aria-label="Operations KPI cards">
@@ -242,6 +259,65 @@ export default function ManagePage() {
                   </div>
                 </article>
               ))}
+            </div>
+            <div className="warehouse-ops-board">
+              <article className="ops-progress-card">
+                <div className="ops-title-row">
+                  <h3>ภาพรวมความจุคลังสินค้า</h3>
+                  <a href="#warehouse">ดูทั้งหมด</a>
+                </div>
+                {warehouseProgress.map((item) => (
+                  <div className="ops-progress-row" key={item.label}>
+                    <div><strong>{item.label}</strong><small>{item.sub}</small></div>
+                    <b>{item.value}</b>
+                    <span><i style={{ width: `${item.progress}%` }} /></span>
+                  </div>
+                ))}
+              </article>
+
+              <article className="ops-schedule-card">
+                <div className="ops-title-row">
+                  <h3>นัดหมายรับสินค้า (วันนี้)</h3>
+                  <a href="#shipments">ดูทั้งหมด</a>
+                </div>
+                {pickupSchedule.map((item) => (
+                  <div className="pickup-row" key={`${item.time}-${item.client}`}>
+                    <strong>{item.time}</strong>
+                    <div><span>{item.client}</span><small>{item.hub}</small></div>
+                    <em>รอรับสินค้า</em>
+                  </div>
+                ))}
+              </article>
+
+              <article className="ops-dock-card">
+                <div className="ops-title-row">
+                  <h3>สถานะประตูรับสินค้า</h3>
+                  <a href="#warehouse">ดูทั้งหมด</a>
+                </div>
+                {dockStatus.map((dock) => (
+                  <div className="dock-location-row" key={dock.hub}>
+                    <strong>{dock.hub}</strong>
+                    <div><span>{dock.waiting}<small>คิวงาน</small></span><span>{dock.empty}<small>ว่าง</small></span><span>{dock.active}<small>ใช้งาน</small></span></div>
+                  </div>
+                ))}
+              </article>
+
+              <article className="ops-inventory-card">
+                <div className="ops-title-row">
+                  <h3>สินค้าคงคลังเด่น</h3>
+                  <a href="#warehouse">ดูทั้งหมด</a>
+                </div>
+                {inventoryHighlights.map((item) => (
+                  <div className="inventory-row" key={item.sku}>
+                    <img src={item.image} alt="" />
+                    <div>
+                      <strong>{item.name}</strong>
+                      <small>SKU: {item.sku}</small>
+                      <span>{item.qty} ชิ้น · มูลค่า {item.value}</span>
+                    </div>
+                  </div>
+                ))}
+              </article>
             </div>
             <div className="dock-strip">
               <article><strong>18</strong><span>Inbound trucks</span></article>
