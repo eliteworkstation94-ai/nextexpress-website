@@ -93,9 +93,10 @@ export function localizedPath(locale: Locale, page: PageKey) {
   return pagePaths[locale][page];
 }
 
-export function SiteHeader({ activePage, locale = 'th' }: { activePage: PageKey; locale?: Locale }) {
-  const switchToThai = pagePaths.th[activePage];
-  const switchToEnglish = pagePaths.en[activePage];
+export function SiteHeader({ activePage, locale = 'th' }: { activePage?: PageKey; locale?: Locale }) {
+  const languagePage = activePage ?? 'home';
+  const switchToThai = pagePaths.th[languagePage];
+  const switchToEnglish = pagePaths.en[languagePage];
 
   return (
     <header className="site-header standard-site-header">
