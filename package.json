@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "node scripts/check-manage-page.mjs"
+    "test": "node scripts/check-manage-page.mjs && node scripts/check-manage-auth.mjs"
   },
   "dependencies": {
     "@types/node": "^22.10.5",
